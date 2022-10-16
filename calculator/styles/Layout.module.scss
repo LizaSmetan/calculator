@@ -1,0 +1,67 @@
+
+@import './_variables.scss';
+
+.header{
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .menu{
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    li{
+      margin: 0 0.5rem;
+      list-style: none;
+      &:hover{
+       opacity: .5;
+      }
+    }
+  }
+  .langSwitcherWrap{
+    position: relative;
+    .langSwitcher{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.2rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 3rem;
+      padding: 0.5rem;
+      border: 1px solid $darkGrey;
+      @include FiraMonoFont();
+      &.langSwitcher__opened{
+        border-radius: 3rem 3rem 0 0;
+        border-bottom-color: transparent;
+        color: #828282;
+      }
+    }
+    ul{
+      top: 3rem;
+      padding: 0;
+      margin: 0;
+      position: absolute;
+      border: 1px solid $darkGrey;
+      list-style: none;
+      border-top-color: transparent;
+      width: 3rem;
+      border-radius: 0 0 3rem 3rem;
+      li{
+        list-style: none;
+        a{
+          font-size: 1.2rem;
+          padding-bottom: 0.5rem;
+          height: 3rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          color: $textColor;
+        }
+      }
+    }
+  }
+}

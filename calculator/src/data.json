@@ -1,0 +1,23 @@
+[
+    {
+        "label": "test title of this",
+        "value": "784152",
+        "price": 4512,
+        "exempt": false,
+        "extra-margin": true
+    },
+    {
+        "label": "test title of this second",
+        "value": "784152",
+        "price": 4512,
+        "exempt": true,
+        "extra-margin": false
+    },
+    {
+        "label": "test title of this second sfdsfdf",
+        "value": "784152",
+        "price": 4512,
+        "exempt": false,
+        "extra-margin": true
+    }
+]

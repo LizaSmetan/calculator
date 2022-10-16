@@ -1,0 +1,36 @@
+$bodyColor: #F5F5F5;
+$darkGrey: #DADEE3;
+$textColor: #111118;
+$greenColor: #23A566;
+$redColor: #f35e5e;
+
+@mixin RobotoFont(){
+  font-family: 'Roboto', sans-serif;
+}
+@mixin FiraMonoFont(){
+    font-family: 'Fira Mono', sans-serif;
+  }
+  @mixin FiraSansFont(){
+    font-family: 'Fira Sans', sans-serif;
+  }
+  @mixin WorkSansFont(){
+    font-family: 'Work Sans', sans-serif;
+  }
+
+  @mixin button {
+    font-size: 1.5rem;
+    border: none;
+    border-radius: 0;
+    padding: 2rem 1.7rem;
+    cursor: pointer;
+    background: #EBEBEB;
+    font-family: FiraSansFont();
+    font-weight: 700;
+    font-style: normal;
+    font-size: 1.25rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    &:hover{
+      background: #EBEBEB;
+    }
+  }
