@@ -42,7 +42,13 @@ yarn dev
 Or run production mode:
 
 ```bash
-yarn build && yarn start
+yarn build
+```
+
+then 
+
+```bash
+yarn start
 ```
 
 The site will be availible on http://localhost:3000
