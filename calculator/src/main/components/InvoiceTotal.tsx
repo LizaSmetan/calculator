@@ -2,7 +2,9 @@ import React, { useState } from 'react'
 import styles from '../../../styles/Main.module.scss'
 import { useTranslation } from 'next-i18next'
 import Checkbox from '../../components/Checkbox';
-import { job, roundToEvenFixed } from '../../helpers/helpers';
+import {
+    calcTax, job, roundToEvenFixed
+} from '../../helpers/helpers';
 const settings = require('../../settings');
 
 type Props = {
@@ -13,13 +15,14 @@ const InvoiceTotal = ({ list }: Props) => {
 
     const { t } = useTranslation()
 
-    const total = list.reduce((acc, val) => acc + val.quantity * val.price, 0);
+    const totalWithTaxes = list.reduce((acc, val) => acc + calcTax(val), 0);
+    const totalWithinTaxes = list.reduce((acc, val) => acc + val.quantity * val.price, 0);
 
-    const taxes = total * (extraMargin
+    const extraMarginValue = totalWithinTaxes * (extraMargin
         ? (settings['margin'] + settings['extra-margin']) / 100
         : settings['margin'] / 100);
 
-    const totalWithTaxes = roundToEvenFixed(total + taxes);
+    const total = roundToEvenFixed(totalWithTaxes + extraMarginValue);
 
     return (
         <div className={styles.invoiceTotal}>
@@ -31,15 +34,15 @@ const InvoiceTotal = ({ list }: Props) => {
             <ul>
                 <li>
                     <p>{t('common:subtotal')}:</p>
-                    <p>$ {total.toFixed(2)}</p>
+                    <p>$ {totalWithTaxes.toFixed(2)}</p>
                 </li>
                 <li>
                     <p>{t('common:tax')}:</p>
-                    <p>$ {taxes.toFixed(2)}</p>
+                    <p>$ {extraMarginValue.toFixed(2)}</p>
                 </li>
                 <li>
                     <p><strong>{t('common:total')}:</strong></p>
-                    <p><strong>$ {totalWithTaxes}</strong></p>
+                    <p><strong>$ {total.toFixed(2)}</strong></p>
                 </li>
             </ul>
             <hr />

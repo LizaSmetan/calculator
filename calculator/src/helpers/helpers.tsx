@@ -18,7 +18,7 @@ export const roundToEvenFixed = (n:number) => {
         .map((item, index) => {
             if (index === 0) return item
             let num = item.slice(0, 2)
-            if (num[1] === '0') num = num.slice(0, 1)
+            if (!num[1]) num = num + '0'
             const fixed = Number(num)
             return Math.floor(fixed - fixed%2)
         })

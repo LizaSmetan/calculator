@@ -26,9 +26,9 @@ const Invoice = ({ setList, list }: Props) => {
                 <p><strong>{item.value}</strong></p>
                 <small>{item.label}</small>
             </div>,
-            `$ ${item.price}`,
+            `$ ${item.price.toFixed(2)}`,
             `${item.quantity}`,
-            `$ ${total}`,
+            `$ ${total.toFixed(2)}`,
             <div onClick={() => deleteItem(index)} key={`listData_delete_${index}`} className={styles.close}>
                 <div/>
                 <div/>
