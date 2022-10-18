@@ -2,6 +2,12 @@
 
 The following commands must be run from the "calculator" directory
 
+To install packages, run:
+
+```bash
+yarn install
+```
+
 First, run the development server:
 
 ```bash
