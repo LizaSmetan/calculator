@@ -1,15 +1,13 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import styles from '../../../styles/Main.module.scss'
 import AutoForm from './AutoForm';
 import CustomForm from './CustomForm';
 import { useTranslation } from 'next-i18next'
+import { GlobalContext } from '../../helpers/withContext';
 
-type Props = {
-    setList: Function,
-    list: Array<Object>
-}
-const Form = ({ setList, list }: Props) => {
+const Form = () => {
     const { t } = useTranslation()
+    const { list, setList } = useContext(GlobalContext)
 
     const [openCustomForm, setOpenCustomForm] = useState(false)
     return (

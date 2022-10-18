@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import Select from 'react-select';
 
 import styles from '../../styles/Main.module.scss'
@@ -53,16 +53,16 @@ const customStyles = {
 const SelectComponent = ({
     onChange, options, error, value, placeholder
 }) => {
-    const ref = useRef()
+    const [isLoading, setIsLoaded] = useState(false)
     const onChangeFunc = (option) => {
         onChange(option)
     }
     useEffect(() => {
-        ref.current = document.body
+        setIsLoaded(document.body)
     }, [])
     return (
         <div className={styles.formControl}>
-            <Select menuPortalTarget={ref.current} placeholder={placeholder} value={value.value ? value : null} isClearable={true} styles={customStyles} onChange={onChangeFunc} options={options}/>
+            <Select menuPortalTarget={isLoading} placeholder={placeholder} value={value.value ? value : null} isClearable={true} styles={customStyles} onChange={onChangeFunc} options={options}/>
             {error ? <div className={`${styles.formControl__Button} ${styles.formControl__Button_transparent}`}><div className={styles.formControlInput__ErrorSign}>!</div></div> : null}
         </div>
     )

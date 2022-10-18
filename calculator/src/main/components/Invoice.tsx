@@ -1,18 +1,15 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styles from '../../../styles/Main.module.scss'
 import Table from '../../components/Table';
 import { useTranslation } from 'next-i18next'
 import InvoiceHead from './InvoiceHead';
 import InvoiceTotal from './InvoiceTotal';
-import { calcTax, job } from '../../helpers/helpers';
+import { calcTax } from '../../helpers/helpers';
+import { GlobalContext } from '../../helpers/withContext';
 
-type Props = {
-    setList: Function,
-    list: Array<job>
-}
-const Invoice = ({ setList, list }: Props) => {
+const Invoice = () => {
     const { t } = useTranslation()
-
+    const { list, setList } = useContext(GlobalContext)
     const deleteItem = (index: number) => {
         const newList = [...list];
         newList.splice(index, 1);
