@@ -1,0 +1,99 @@
+
+@import './variables';
+
+.formControl__Button{
+  position: absolute;
+  width: 3rem;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  border: none;
+  background: $darkGrey;
+  cursor: pointer;
+  &.formControl__Button_transparent{
+    background: transparent;
+  }
+  &:hover{
+    .formControl__Check{
+      border-bottom: 3px solid $greenColor;
+      border-right: 3px solid $greenColor;
+    }
+  }
+}
+.formControl__Check{
+  @include check;
+  position: absolute;
+  right: 1.2rem;
+  top: calc(50% - 0.75rem);
+  border-color: $textColor;
+  opacity: .8;
+}
+.formControlInput__ErrorSign{
+  position: absolute;
+  right: 1rem;
+  border-radius: 50%;
+  background: $redColor;
+  color: #fff;
+  top: calc(50% - 0.7rem);
+  width: 1.4rem;
+  height: 1.4rem;
+  line-height: 1.4rem;
+  text-align: center;
+}
+.formControl{
+  @include FiraSansFont();
+  margin-bottom: 1rem;
+  position: relative;
+  .formControlInput{
+    width: 100%;
+    border: 1px solid $darkGrey;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+    padding: 1rem 3rem 1rem 1.5rem;
+    font-size: 1rem;
+    height: 50px;
+  }
+  .formControlInput__Error{
+    border-color: $redColor;
+  }
+  &+.formControl{
+    .formControlInput{
+      border-left: none;
+    }
+  }
+}
+
+.formControlCheckboxWrap{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.formControlCheckbox{
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  position: relative;
+    border: 2px solid $darkGrey;
+    justify-content: center;
+    background-color: #fff;
+    margin-right: 0.5rem;
+  .formControlCheckboxCheck{
+    @include check;
+    position: absolute;
+    left: 4px;
+    top: calc(50% - 0.7rem);
+    opacity: 0;
+  }
+}
+.formControlCheckboxInput{
+  display: none;
+  &:checked{
+    &+.formControlCheckbox{
+      .formControlCheckboxCheck{
+        opacity: 1;
+      }
+    }
+  }
+}

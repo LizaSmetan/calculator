@@ -1,0 +1,26 @@
+{
+    "mainTitle": "Vypočítat cenu služeb",
+    "priceTitle": "Zobrazit ceny",
+    "dateLabel": "Datum",
+    "checkLabel": "Účet",
+    "print":"Tisk",
+    "description": "ID/služba",
+    "price": "Cena",
+    "quantity": "množství",
+    "amount": "Celkové náklady (+ daně)",
+    "totals": "Celkem",
+    "subtotal": "Celkem",
+    "tax": "daně",
+    "total": "K zaplacení",
+    "thanks":"Děkujeme, že jste si vybrali nás",
+    "kalkulovat": "Vypočítat",
+    "selectValueText": "Vyberte službu ze seznamu",
+    "nebo": "nebo",
+    "openFormText": "vyplňte malý formulář",
+    "selectValuePlaceholder": "Vyberte službu",
+    "inputValuePlaceholder": "Zadejte název služby",
+    "exempt": "Osvobozeno od daně",
+    "extraMargin": "Extra margin",
+
+    "5254":"Frisbees","9958":"Hlavičkový papír","12638":"Jo-jo","12721":"Věšáky na dveře","13483":"Záložky","21916":"Bezuhlíkové formuláře ","24161":"Pohlednice","28109":"Bannery","30201":"Obálky","33418":"Brožury","43137":"Složky do kapes","50599":"Kalendáře" ,"58059":"Vizitky","59434":"Trička","62474":"Barevné kopie","63489":"Černobílé kopie","81093":"Policové karty"," 98106":"Štítky"
+}

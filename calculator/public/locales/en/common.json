@@ -1,0 +1,26 @@
+{
+    "mainTitle": "Calculate the cost of services",
+    "priceTitle": "View Prices",
+    "dateLabel": "Date",
+    "checkLabel": "Check",
+    "print":"Print",
+    "description": "ID/Service",
+    "price": "Price",
+    "quantity": "Quantity",
+    "amount": "Total cost (+ tax)",
+    "totals": "Total",
+    "subtotal": "Total",
+    "tax": "Taxes",
+    "total": "To be paid",
+    "thanks":"Thank you for choosing us",
+    "calculate": "Calculate",
+    "selectValueText": "Select a service from the list",
+    "or": "or",
+    "openFormText": "fill out a small form",
+    "selectValuePlaceholder": "Select a service",
+    "inputValuePlaceholder": "Enter the name of the service",
+    "exempt": "Exempt from taxation",
+    "extraMargin": "Extra Margin",
+
+    "5254":"Frisbees","9958":"Letterhead","12638":"Yo-yos","12721":"Door Hangers","13483":"Bookmarks","21916":"Carbonless Forms","24161":"Postcards","28109":"Banners","30201":"Envelopes","33418":"Brochures","43137":"Pocket Folders","50599":"Calendars","58059":"Business Cards","59434":"T-shirts","62474":"Color Copies","63489":"Black & White Copies","81093":"Rack Cards","98106":"Labels"
+}

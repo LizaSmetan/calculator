@@ -1,0 +1,23 @@
+@import './parts/variables';
+@import './parts/table';
+@import './parts/form';
+@import './parts/default';
+
+.priceList{
+  background: #fff;
+  padding: 3rem;
+  table tr th,
+  table tr td{
+    &:nth-child(2){
+      text-align: left;
+    }
+    .checkWrap{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .check{
+        @include check;
+      }
+    }
+  }
+}

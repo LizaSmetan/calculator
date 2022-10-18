@@ -1,92 +1,57 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import styles from '../../../styles/Main.module.scss'
-import moment from 'moment'
-import Table from '../../components/Table'
+import Table from '../../components/Table';
+import { useTranslation } from 'next-i18next'
+import InvoiceHead from './InvoiceHead';
+import InvoiceTotal from './InvoiceTotal';
+import { calcTax, job } from '../../helpers/helpers';
+
 type Props = {
     setList: Function,
-    list: Array<Object>
+    list: Array<job>
 }
 const Invoice = ({ setList, list }: Props) => {
-    const [num, setNum] = useState(0)
-    const [date, setDate] = useState('')
-    useEffect(() => {
-        setNum(Math.random() * 1000);
-        setDate(moment().format('DD.MM.YYYY'))
-    }, [])
+    const { t } = useTranslation()
 
-    type item = {
-        label: string,
-        value: string,
-        quantity: number,
-        price: number,
-
+    const deleteItem = (index: number) => {
+        const newList = [...list];
+        newList.splice(index, 1);
+        setList(newList)
     }
-    const data = list.map((item: item) => [
-        <div key='njdkmlf'>
-            <p><strong>{item.value}</strong></p>
-            <small>{item.label}</small>
-        </div>,
-        `$ ${item.price}`,
-        `${item.quantity}`,
-        `$ ${item.quantity * item.price}`,
-        <div key='jdckdsmf' className={styles.close}>
-            <div/>
-            <div/>
-        </div>
-    ])
+
+    const data = list.map((item, index) => {
+        const total = calcTax(item)
+        return [
+            <div key={`listData_title_${index}`}>
+                <p><strong>{item.value}</strong></p>
+                <small>{item.label}</small>
+            </div>,
+            `$ ${item.price}`,
+            `${item.quantity}`,
+            `$ ${total}`,
+            <div onClick={() => deleteItem(index)} key={`listData_delete_${index}`} className={styles.close}>
+                <div/>
+                <div/>
+            </div>
+        ]
+    })
+
     return (
-        <div className={styles.invoice}>
+        <div className={`${styles.invoice} ${list.length ? styles.invoiceVisible : ''}`}>
             <div className={styles.invoiceContent}>
-                <div className={styles.invoiceHeader}>
-                    <div>
-                        <h1>HH Global</h1>
-                        <ul>
-                            <li>
-                                <>
-                                    <strong>Date:</strong> {date}
-                                </>
-                            </li>
-                            <li>
-                                <>
-                                    <strong>Check:</strong> #{num}
-                                </>
-                            </li>
-                        </ul>
-                    </div>
-                    <div className={styles.invoiceHeaderButton}>
-                        <button className={styles.button} >Print</button>
-                    </div>
-                </div>
+                <InvoiceHead/>
                 <Table
                     data={data}
-                    thead={['ID/Description', 'Rate', 'Quantity', 'Subtotal', ' ']}
+                    thead={[
+                        t('common:description'),
+                        t('common:price'),
+                        t('common:quantity'),
+                        t('common:amount'),
+                        ' '
+                    ]}
                 />
             </div>
-            <div className={styles.invoiceTotal}>
-                <h6>Totals</h6>
-                <hr/>
-                <ul>
-                    <li>
-                        <p>Subtotal:</p>
-                        <p>$12,345.00</p>
-                    </li>
-                    <li>
-                        <p>Tax:</p>
-                        <p>$12,345.00</p>
-                    </li>
-                    <li>
-                        <p><strong>Total:</strong></p>
-                        <p><strong>$12,345.00</strong></p>
-                    </li>
-                </ul>
-                <hr />
-                <div className={styles.invoiceTotalMail}>
-                    <span className={styles.circle}/>
-                    <p>
-                        Thank you! — <a href='http://localhost:3000/cz'>yourename@gmail.com</a>
-                    </p>
-                </div>
-            </div>
+            <InvoiceTotal list={list}/>
         </div>
     )
 }

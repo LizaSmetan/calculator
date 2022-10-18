@@ -2,13 +2,16 @@ import React, { ReactNode } from 'react'
 import styles from '../../styles/Main.module.scss'
 type Props = {
     children?: ReactNode,
-    onChange: Function
+    onChange: Function,
+    value: boolean
  }
-const Checkbox = ({ onChange, children }:Props) => {
+const Checkbox = ({
+    onChange, children, value
+}:Props) => {
     return (
         <div className={styles.formControl}>
             <label className={styles.formControlCheckboxWrap}>
-                <input onChange={(e) => onChange(e)} className={styles.formControlCheckboxInput} type={'checkbox'}/>
+                <input checked={value} onChange={(e) => onChange(e.target.checked)} className={styles.formControlCheckboxInput} type={'checkbox'}/>
                 <div className={styles.formControlCheckbox}>
                     <div className={styles.formControlCheckboxCheck}></div>
                 </div>

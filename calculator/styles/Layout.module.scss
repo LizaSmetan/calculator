@@ -1,19 +1,33 @@
 
-@import './_variables.scss';
+@import './parts/variables';
+@import './parts/default';
 
 .header{
   padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 767px){
+    padding: 1rem;
+  }
+  @media screen and (max-width: 479px){
+    flex-direction: column;
+    padding-bottom: 0;
+  }
   .menu{
     list-style: none;
     display: flex;
     align-items: center;
     margin: 0;
+    padding: 0;
+    @media screen and (max-width: 479px){
+      margin-bottom: 0.5rem;
+    }
     li{
-      margin: 0 0.5rem;
       list-style: none;
+      &+li{
+        margin-left: 2rem;
+      }
       &:hover{
        opacity: .5;
       }

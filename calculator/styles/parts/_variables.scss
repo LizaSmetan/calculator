@@ -1,7 +1,7 @@
 $bodyColor: #F5F5F5;
 $darkGrey: #DADEE3;
 $textColor: #111118;
-$greenColor: #23A566;
+$greenColor: #72CA97;
 $redColor: #f35e5e;
 
 @mixin RobotoFont(){
@@ -33,4 +33,11 @@ $redColor: #f35e5e;
     &:hover{
       background: #EBEBEB;
     }
+  }
+  @mixin check {
+    border-bottom: 3px solid $greenColor;
+    border-right: 3px solid $greenColor;
+    width: 0.7rem;
+    height: 1rem;
+    transform: rotate(45deg);
   }
